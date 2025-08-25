@@ -27,3 +27,9 @@ cd backend
 npm install
 cp .env.example .env # fill OPERATOR_ID and OPERATOR_KEY, optionally HEDERA_TOPIC_ID
 npm start
+###
+```bash
+cd frontend
+npm install
+npm run dev
+# open http://localhost:3000
