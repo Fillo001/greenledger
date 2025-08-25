@@ -1,51 +1,29 @@
 
-# GreenLedger — Project Proposal (DLT for Operations)
+# 🌍 GreenLedger — Proof of Climate Action on Hedera
 
-## 1) Problem
-Climate and sustainability projects across Africa struggle with **proof and trust**: donors and governments can’t easily verify actions (e.g., trees planted, water points built), and communities don’t receive recognition or rewards. This leads to **greenwashing**, funding friction, and poor accountability.
+**Track:** DLT for Operations (Hedera Africa Hackathon 2025)
 
-## 2) Solution
-**GreenLedger** is a **Hedera-based proof-of-action system**:
-- Submit **geo-tagged evidence** (photo hash, coordinates, tags)
-- Backend validates data and writes to **Hedera Consensus Service** (immutable log)
-- Dashboard shows **real-time, auditable climate action**
-- Future: tokenized incentives via **Hedera Token Service / smart contracts**
+GreenLedger is a **Hedera-powered transparency platform** that records and verifies environmental actions (tree planting, recycling, clean water, clean energy) and makes them **auditable, visible, and rewardable**.
 
-## 3) Track Fit — DLT for Operations
-- Improves eco-operations by making actions **transparent, secure, efficient**
-- Supports SDGs: **6 (Clean Water), 11 (Sustainable Cities), 13 (Climate Action), 15 (Life on Land)**
+## 🔧 What we’re building (MVP)
+- **Immutable Proof of Action**: submit geo-tagged events to **Hedera Consensus Service (HCS)**
+- **Simple Dashboard UI** (Next.js): form to submit actions
+- **API (Express)**: verifies input and writes to HCS
+- **Optional Token** (ERC-20 style) for future rewards
 
-## 4) Users & Benefits
-- **NGOs & Donors**: verifiable impact, reduced fraud
-- **Communities**: recognition & rewards
-- **Governments**: audit-ready reporting
+## 🌱 Why Hedera
+- Low-fee, high-throughput, carbon-negative network
+- HCS for cheap, immutable logging
+- HTS/Smart Contracts for tokenized incentives (future)
 
-## 5) MVP Scope
-- HCS topic for action logs
-- API endpoint to submit actions
-- Simple web form to create actions
+## 🗺️ Architecture (MVP)
+Frontend → Backend API → Hedera Consensus Service (Topic)
 
-## 6) Tech Stack
-- **DLT:** Hedera (HCS now; HTS/tokens later)
-- **Backend:** Node.js + Express + `@hashgraph/sdk`
-- **Frontend:** Next.js (React)
-- **Storage:** IPFS (future for media); store **hashes** now
+## 🧪 Run locally
 
-## 7) Success Metrics
-- Time to verify action < 5s
-- Cost per action log < $0.01
-- 3 pilot communities; 1 NGO partner
-
-## 8) Roadmap
-- **M1:** MVP (HCS + form) — submission
-- **M2:** Role-based dashboards; map view; CSV export
-- **M3:** Token rewards (HTS) + mobile PWA
-
-## 9) Risks & Mitigation
-- **Fake evidence** → multi-factor proofs (geo, timestamp, reviewer), community validators
-- **Connectivity** → offline capture, later sync
-- **Privacy** → store hashes on-chain; sensitive data off-chain
-
-## 10) Team & Needs
-- PM/Founder, Frontend, Backend, DLT devs; NGO partner
-- Looking for mentors on **Hedera HTS** and **impact measurement**
+### Backend
+```bash
+cd backend
+npm install
+cp .env.example .env # fill OPERATOR_ID and OPERATOR_KEY, optionally HEDERA_TOPIC_ID
+npm start
